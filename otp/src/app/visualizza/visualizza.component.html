@@ -1,5 +1,8 @@
-<label for="cerca"><b>Inserisci username</b></label>
+<div><label for="cerca"><b>Inserisci nuovo username</b></label>
+<br>
 <input class="form-control form-control-lg"  [(ngModel)]="ricerca">
 <br>
-<input type="submit" (click)=cerca() value="CERCA UTENTE">
-<img [src]="imageSource" alt="Image Source">
+<input type="submit" (click)=cerca() value="CREA NUOVO UTENTE">
+
+<img *ngIf="immagine" [src]="imageSource" alt="Image Source">
+</div>

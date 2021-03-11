@@ -13,6 +13,7 @@ export class VisualizzaComponent implements OnInit {
   ricerca : string = ''
   utente : Utente = new Utente
   imageSource : any
+  immagine : boolean = false
 
   constructor(private servizi:ServiziService,private sanitizer : DomSanitizer) { }
 
@@ -33,6 +34,7 @@ export class VisualizzaComponent implements OnInit {
           window.alert('username non esistente')
           this.utente.mail=this.ricerca
           this.servizi.creautente(this.utente).subscribe(response=>{
+            this.immagine=true
             this.imageSource = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${response.qrCode}`);
 
           })
