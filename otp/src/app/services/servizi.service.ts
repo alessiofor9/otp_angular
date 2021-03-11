@@ -21,4 +21,9 @@ export class ServiziService {
   {
     return this.http.post<boolean>(`http://localhost:8080/accesso`,u);
   }
+
+  recuperaQr(username : string)
+  {
+    return this.http.get<Utente>(`http://localhost:8080/recupera/${username}`);
+  }
 }

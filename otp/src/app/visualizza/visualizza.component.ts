@@ -27,11 +27,11 @@ export class VisualizzaComponent implements OnInit {
       this.servizi.controlloEsistente(this.ricerca).subscribe(response=>{
         if(response == true)
         {
-          window.alert('username esistente')
+          window.alert('Username gia utilizzato')
         }
         else
         {
-          window.alert('username non esistente')
+          window.alert('Nuovo utente creato con successo')
           this.utente.mail=this.ricerca
           this.servizi.creautente(this.utente).subscribe(response=>{
             this.immagine=true

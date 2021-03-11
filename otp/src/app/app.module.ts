@@ -8,13 +8,15 @@ import { VisualizzaComponent } from './visualizza/visualizza.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { RecuperaQrComponent } from './recupera-qr/recupera-qr.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VisualizzaComponent,
     LoginComponent,
-    HomepageComponent
+    HomepageComponent,
+    RecuperaQrComponent
   ],
   imports: [
     BrowserModule,
