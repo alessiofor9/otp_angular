@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Utente } from '../classi/Classe';
 import { ServiziService } from '../services/servizi.service';
 
 @Component({
@@ -9,8 +11,10 @@ import { ServiziService } from '../services/servizi.service';
 export class VisualizzaComponent implements OnInit {
 
   ricerca : string = ''
+  utente : Utente = new Utente
+  imageSource : any
 
-  constructor(private servizi:ServiziService) { }
+  constructor(private servizi:ServiziService,private sanitizer : DomSanitizer) { }
 
   ngOnInit(): void {
   }
@@ -27,6 +31,11 @@ export class VisualizzaComponent implements OnInit {
         else
         {
           window.alert('username non esistente')
+          this.utente.mail=this.ricerca
+          this.servizi.creautente(this.utente).subscribe(response=>{
+            this.imageSource = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${response.qrCode}`);
+
+          })
         }
       })
     }
