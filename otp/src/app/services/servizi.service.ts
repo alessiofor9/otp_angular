@@ -8,9 +8,9 @@ import { IdPc, Utente } from '../classi/Classe';
 export class ServiziService {
 
   constructor(private http : HttpClient) { }
-  creautente(u : Utente)
+  creautente(id: number,mail: string)
   {
-    return this.http.post<Utente>(`http://localhost:8080/crea`,u);
+    return this.http.post(`http://localhost:8080/crea/${id}/${mail}`,null);
   }
   controlloEsistente(id : number)
   {
@@ -29,11 +29,11 @@ export class ServiziService {
 
   creaidpc(a : IdPc)
   {
-    return this.http.post<boolean>(`http://localhost:8080/creaidpc`,a);
+    return this.http.post<boolean>(`http://localhost:8080/idpc/creazione`,a);
   }
 
   loginidpc(a : IdPc)
   {
-    return this.http.post<IdPc>(`http://localhost:8080/accessoidpc`,a);
+    return this.http.post<IdPc>(`http://localhost:8080/idpc/accesso`,a);
   }
 }

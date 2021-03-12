@@ -26,6 +26,7 @@ export class VisualizzaComponent implements OnInit {
   cerca()
   {
     this.servizi.loginidpc(this.idpc).subscribe(response=>{this.idpc=response
+      console.log(this.idpc)
       if(this.idpc.id!= 0 && this.idpc.id!= undefined)
       {
         this.servizi.controlloEsistente(this.idpc.id).subscribe(response=>{
@@ -39,10 +40,16 @@ export class VisualizzaComponent implements OnInit {
             window.alert('Nuovo utente creato con successo')
             this.utente.id_utente=this.idpc.id
             this.utente.mail=this.idpc.mail
-            this.servizi.creautente(this.utente).subscribe(response=>{
+            if(this.utente.id_utente!=null && this.utente.mail!= null)
+            this.servizi.creautente(this.utente.id_utente,this.utente.mail).subscribe(response=>{
               this.immagine=true
-              this.imageSource = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${response.qrCode}`);
-  
+              if(this.utente.mail!= null)
+              {
+                this.servizi.recuperaQr(this.utente.mail).subscribe(response=>{
+                  this.imageSource = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${response.qrCode}`); })
+              }
+             
+             
             })
           }
         })
