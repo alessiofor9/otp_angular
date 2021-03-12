@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { RecuperaQrComponent } from './recupera-qr/recupera-qr.component';
+import { RegistraidpcComponent } from './registraidpc/registraidpc.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RecuperaQrComponent } from './recupera-qr/recupera-qr.component';
     VisualizzaComponent,
     LoginComponent,
     HomepageComponent,
-    RecuperaQrComponent
+    RecuperaQrComponent,
+    RegistraidpcComponent
   ],
   imports: [
     BrowserModule,

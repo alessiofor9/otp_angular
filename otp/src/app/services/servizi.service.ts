@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Utente } from '../classi/Classe';
+import { IdPc, Utente } from '../classi/Classe';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +12,9 @@ export class ServiziService {
   {
     return this.http.post<Utente>(`http://localhost:8080/crea`,u);
   }
-  controlloEsistente(username : string)
+  controlloEsistente(id : number)
   {
-    return this.http.get<boolean>(`http://localhost:8080/esistente/${username}`);
+    return this.http.get<boolean>(`http://localhost:8080/esistente/${id}`);
   }
 
   login(u : Utente)
@@ -25,5 +25,15 @@ export class ServiziService {
   recuperaQr(username : string)
   {
     return this.http.get<Utente>(`http://localhost:8080/recupera/${username}`);
+  }
+
+  creaidpc(a : IdPc)
+  {
+    return this.http.post<boolean>(`http://localhost:8080/creaidpc`,a);
+  }
+
+  loginidpc(a : IdPc)
+  {
+    return this.http.post<IdPc>(`http://localhost:8080/accessoidpc`,a);
   }
 }

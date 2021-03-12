@@ -8,3 +8,12 @@ export class Utente
     public secret ?: string   
   )  {  }
 }
+
+export class IdPc
+{
+  constructor(
+    public id ?: number,
+    public mail ?: string,
+    public password ?: string
+  )  {  }
+}

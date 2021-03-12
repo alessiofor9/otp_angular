@@ -1,8 +1,11 @@
-<div><label for="cerca"><b>Inserisci nuovo username</b></label>
+<div><label for="cerca"><b>Inserisci mail e password per effettuare il login</b></label>
 <br>
-<input class="form-control form-control-lg"  [(ngModel)]="ricerca">
-<br> <br><br>
-<input type="submit" (click)=cerca() value="CREA NUOVO UTENTE">
+<label>inserisci la mail</label>
+<input class="form-control form-control-lg"  [(ngModel)]="idpc.mail"><br>
+<label>inserisci la password</label>
+<input class="form-control form-control-lg"  [(ngModel)]="idpc.password"><br>
+
+<input type="submit" (click)=cerca() value="Login Cruscotto"><br>
 
 <a href="">TORNA ALLA HOMEPAGE</a>
 
