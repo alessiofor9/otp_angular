@@ -32,6 +32,7 @@ export class VisualizzaComponent implements OnInit {
         this.servizi.controlloEsistente(this.idpc.id).subscribe(response=>{
           if(response == true)
           {
+            this.storage.set('id',this.idpc.id)
             this.storage.set('mail',this.idpc.mail)
             this.router.navigate(['login'])
           }

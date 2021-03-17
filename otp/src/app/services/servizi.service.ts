@@ -9,13 +9,13 @@ export class ServiziService {
 
   constructor(private http : HttpClient) { }
 
- //MODIFICATO
+ //MODIFICATO ---ok
   creautente(id: number,mail: string)
   {
     return this.http.post(`http://localhost:8080/totp/user/${id}/${mail}`,null);
   }
 
-  //MODIFICATO
+  //MODIFICATO  ---ok
   controlloEsistente(id : number)
   {
     return this.http.get<boolean>(`http://localhost:8080/totp/user/${id}`);
@@ -27,7 +27,7 @@ export class ServiziService {
     return this.http.get(`http://localhost:8080/totp/user/${id}/otp/${otp}`);
   }
 
-  // MODIFICATO
+  // MODIFICATO --- ok front
   recuperaQr(username : string)
   {
     return this.http.get<Utente>(`http://localhost:8080/totp/user/${username}/qrcode`);

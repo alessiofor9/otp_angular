@@ -10,6 +10,8 @@ import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { RecuperaQrComponent } from './recupera-qr/recupera-qr.component';
 import { RegistraidpcComponent } from './registraidpc/registraidpc.component';
+import { HomeuserComponent } from './homeuser/homeuser.component';
+import { ModificaComponent } from './modifica/modifica.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { RegistraidpcComponent } from './registraidpc/registraidpc.component';
     LoginComponent,
     HomepageComponent,
     RecuperaQrComponent,
-    RegistraidpcComponent
+    RegistraidpcComponent,
+    HomeuserComponent,
+    ModificaComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SessionStorageService } from 'angular-web-storage';
 import { Utente } from '../classi/Classe';
 import { ServiziService } from '../services/servizi.service';
@@ -11,21 +12,21 @@ import { ServiziService } from '../services/servizi.service';
 export class LoginComponent implements OnInit {
 
   utente : Utente = new Utente
+  otp : string = ""
 
-  constructor(private servizi : ServiziService,private storage : SessionStorageService) { }
+  constructor(private servizi : ServiziService,private storage : SessionStorageService , private route:Router) { }
 
   ngOnInit(): void {
   }
 
   accesso()
   {
-    this.utente.mail=this.storage.get('mail')
-    console.log(this.utente.mail)
-    console.log(this.utente.hex_id)
-    this.servizi.login(this.utente).subscribe(response=>{
+    
+    this.servizi.login(this.storage.get('id'),this.otp).subscribe(response=>{
       if(response==true)
       {
         window.alert('accesso eseguito')
+        this.route.navigate(['homeuser'])
       }
       else
       {
